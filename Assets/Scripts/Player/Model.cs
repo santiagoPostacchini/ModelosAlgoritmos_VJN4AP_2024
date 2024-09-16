@@ -2,11 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
-public class Model : MonoBehaviour
+public class Model : MonoBehaviour, IDamage
 {
-    public float baseHp = 100;
-    public float _currentHp;
+    [SerializeField] private float _maxLife = 100;
+    private float _life;
+    private float lifePerSeconds;
+
+    public GameManager gm;
+    public Transform bulletSpawn;
+    Rigidbody2D rb;
+
+    public float speed;
+    public Vector2 movDir;
+
+    public bool isCooldown = false;
+    public bool isInmortal = false;
+    public bool isFreezeBullet = false;
+    
+    //public int reviveDuration;
+    public bool isKnocked;
+    
+    //public ReviveText reviveTimer;
+
+    //public Bullet fireball;
+    //public FreezeBullet freezeball;
+    //public HUD Hud;
 
     IController _myController;
     View _view;
@@ -18,7 +40,8 @@ public class Model : MonoBehaviour
 
     void Awake()
     {
-        _currentHp = baseHp;
+        _life = _maxLife;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
@@ -31,22 +54,35 @@ public class Model : MonoBehaviour
     void Update()
     {
         _myController.OnUpdate();
+        Movement(movDir);
     }
 
-    public void Movement(Vector3 direction)
+    public void Movement(Vector2 dir)
     {
-        transform.position += direction * 2 * Time.deltaTime;
+        dir.Normalize();
+
+        rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * dir);
     }
-    public void TakeDamage(float dmg) 
+
+    public void TakeDamage(float dmg, string id = null)
     {
-        _currentHp -= dmg;
+        _life -= dmg;
 
-        onGetDmg(_currentHp / baseHp);
+        onGetDmg(_life / _maxLife);
 
-        if (_currentHp <= 0) 
+        if (_life <= 0)
         {
             Death();
         }
+    }
+
+    public void Fire()
+    {
+        //bala del pool
+        var p = ProjectileFactory.Instance.proyectilePool.GetObject();
+        if (!p) return;
+
+        p.transform.SetPositionAndRotation(bulletSpawn.position, Quaternion.identity);
     }
 
     void Death()

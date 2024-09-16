@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class View : MonoBehaviour
 {
-    public Image lifeBar;
+    public Slider lifeBar;
 
     Material _myMat;
     //Animator _myAnim;
@@ -18,7 +18,7 @@ public class View : MonoBehaviour
 
     public void UpdateHudLife(float value)
     {
-        lifeBar.fillAmount = value;
+        lifeBar.value = value;
     }
 
     public void DeathMaterial()
@@ -29,5 +29,10 @@ public class View : MonoBehaviour
     //public void HurtAnimation()
     //{
     //    _myAnim.SetTrigger("Hurt");
+    //}
+
+    //public void HurtSound()
+    //{
+        
     //}
 }
