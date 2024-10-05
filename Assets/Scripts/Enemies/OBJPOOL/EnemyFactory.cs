@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,26 +5,50 @@ public class EnemyFactory : MonoBehaviour
 {
     public static EnemyFactory Instance;
 
-    public Enemy
-        enemyPrefab;
+    // Dictionary de pools segun el prefab de enemigo que quiera
+    private Dictionary<Enemy, ObjectPool<Enemy>> enemyPools = new Dictionary<Enemy, ObjectPool<Enemy>>();
+    [SerializeField] private Enemy[] enemiesToPool;
     public int stonks = 10;
     public bool dynamic = true;
-
-    public ObjectPool<Enemy> enemyPool;
 
     void Start()
     {
         Instance = this;
-        enemyPool = new ObjectPool<Enemy>(EnemyCreator, Enemy.TurnOnOff, stonks, dynamic);
+        foreach (Enemy e in enemiesToPool)
+        {
+            if (!enemyPools.ContainsKey(e))
+            {
+                // Crear un pool si no existe una para ese enemigo
+                enemyPools[e] = new ObjectPool<Enemy>(() => InstantiateEnemy(e), Enemy.TurnOnOff, stonks, dynamic);
+            }
+        }
     }
 
-    public Enemy EnemyCreator()
+    private Enemy InstantiateEnemy(Enemy e)
     {
-        return Instantiate(enemyPrefab, transform);
+        return Instantiate(e, transform);
+    }
+
+    public Enemy GetEnemy(Enemy e)
+    {
+        if (!enemyPools.ContainsKey(e))
+        {
+            enemyPools[e] = new ObjectPool<Enemy>(() => InstantiateEnemy(e), Enemy.TurnOnOff, stonks, dynamic);
+        }
+
+        return enemyPools[e].GetObject();
     }
 
     public void ReturnEnemy(Enemy e)
     {
-        enemyPool.ReturnObject(e);
+        // Encontrar la pool y traer el enemigo
+        foreach (var poolEntry in enemyPools)
+        {
+            if (poolEntry.Key.GetType() == e.GetType())
+            {
+                poolEntry.Value.ReturnObject(e);
+                return;
+            }
+        }
     }
 }

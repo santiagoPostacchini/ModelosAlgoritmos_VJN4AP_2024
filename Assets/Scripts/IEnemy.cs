@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IEnemy
 {
-    void AddPoints(string id);
+    void AddPoints(Model m);
 }

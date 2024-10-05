@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, IEnemy
 {
 
-    protected virtual void Reset()
+    public virtual void Reset()
     {
-        
+
     }
 
     public static void TurnOnOff(Enemy e, bool active = true)
@@ -16,7 +14,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         e.gameObject.SetActive(active);
     }
 
-    public virtual void AddPoints(string id)
+    public virtual void AddPoints(Model m)
     {
 
     }

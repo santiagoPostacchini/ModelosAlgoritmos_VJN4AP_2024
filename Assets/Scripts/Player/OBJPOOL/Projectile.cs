@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float _speed = 7f, _maxDistance = 300f, bulletDamage, _currentDistance = 0f;
-
-    public string pID;
-    public string playerName;
-    public GameObject HitEffect;
+    public Model m = null; //el que disparo
+    public float _currentDistance;
+    private float damage;
+    //public GameObject HitEffect;
 
     private void Start()
     {
-        bulletDamage = Random.Range(10f, 16f);
+        damage = Random.Range(10f, 16f);
+        this.GetComponent<Renderer>().sortingLayerName = "Default";
+        this.GetComponent<Renderer>().sortingOrder = 3;
     }
 
     void Update()
     {
-        float distanceToTravel = -_speed * Time.deltaTime;
-        _currentDistance += distanceToTravel;
+        float distanceToTravel = -GameManager.instance.p_speed * Time.deltaTime;
+        _currentDistance += Mathf.Abs(distanceToTravel);
 
-        if (_currentDistance > _maxDistance)
+        transform.position += distanceToTravel * transform.up;
+
+        if (_currentDistance > GameManager.instance.p_maxDistance)
         {
+            Debug.Log("maxima distancia");
             ProjectileFactory.Instance.ReturnProjectile(this);
         }
     }
@@ -29,27 +33,37 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Instantiate(HitEffect, transform.position, Quaternion.identity);
-        if (collision.gameObject.GetComponent<IDamage>() != null) //si eso puede dañarse
+        if (collision.gameObject.GetComponent<IDamage>() != null)
         {
-            if(collision.gameObject.GetComponent<IEnemy>() != null) //y es un enemigo
+            if (collision.gameObject.GetComponent<IEnemy>() != null)
             {
-                collision.gameObject.GetComponent<IDamage>().TakeDamage(bulletDamage, pID);
-                collision.gameObject.GetComponent<IEnemy>().AddPoints(pID);
-                ProjectileFactory.Instance.ReturnProjectile(this);
+                if(m != null)
+                {
+                    collision.gameObject.GetComponent<IDamage>().TakeDamage(damage);
+                    collision.gameObject.GetComponent<IEnemy>().AddPoints(m);
+                    ProjectileFactory.Instance.ReturnProjectile(this);
+                }
             }
-            else
+            else //es un pj
             {
-                collision.gameObject.GetComponent<IDamage>().TakeDamage(bulletDamage);
-                ProjectileFactory.Instance.ReturnProjectile(this);
+                if (m == null)
+                {
+                    collision.gameObject.GetComponent<IDamage>().TakeDamage(damage);
+                    ProjectileFactory.Instance.ReturnProjectile(this);
+                }
             }
-
+        } 
+        else if(collision.gameObject.tag == "Asset")
+        {
+            ProjectileFactory.Instance.ReturnProjectile(this);
         }
-        ProjectileFactory.Instance.ReturnProjectile(this); //si choca con algo igual se destruye
     }
 
     private void Reset()
     {
-        bulletDamage = Random.Range(10f, 16f);
+        _currentDistance = 0;
+        damage = Random.Range(10f, 16f);
+        m = null;
     }
 
     public static void TurnOnOff(Projectile p, bool active = true)
