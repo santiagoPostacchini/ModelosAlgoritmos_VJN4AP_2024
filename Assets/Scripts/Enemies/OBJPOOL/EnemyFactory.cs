@@ -7,7 +7,7 @@ public class EnemyFactory : MonoBehaviour
 
     // Dictionary de pools segun el prefab de enemigo que quiera
     private Dictionary<Enemy, ObjectPool<Enemy>> enemyPools = new Dictionary<Enemy, ObjectPool<Enemy>>();
-    [SerializeField] private Enemy[] enemiesToPool;
+    public Enemy[] enemiesToPool;
     public int stonks = 10;
     public bool dynamic = true;
 

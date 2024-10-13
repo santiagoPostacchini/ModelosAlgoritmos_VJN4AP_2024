@@ -5,7 +5,6 @@ public class EnemySpawner : MonoBehaviour
 {
     public float spawnRate;
     private int spawnChanceCompare;
-    public Enemy[] enemyPrefabs;
 
     void Start()
     {
@@ -29,8 +28,8 @@ public class EnemySpawner : MonoBehaviour
                 );
 
                 // Randomly choose a specific enemy prefab to spawn
-                int randIndex = Random.Range(0, enemyPrefabs.Length);
-                var enemyPrefab = enemyPrefabs[randIndex];
+                int randIndex = Random.Range(0, EnemyFactory.Instance.enemiesToPool.Length);
+                var enemyPrefab = EnemyFactory.Instance.enemiesToPool[randIndex];
 
                 // Get the specific enemy from the factory
                 var enemy = EnemyFactory.Instance.GetEnemy(enemyPrefab);
