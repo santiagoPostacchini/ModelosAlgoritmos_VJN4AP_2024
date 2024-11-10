@@ -1,0 +1,34 @@
+[
+  {
+    "key": "MPLAYBUTTON",
+    "value": "Играть"
+  },
+  {
+    "key": "MCREDITSBUTTON",
+    "value": "Кредиты"
+  },
+  {
+    "key": "MINSTRUCTIONBUTTON",
+    "value": "Инструкции"
+  },
+  {
+    "key": "MTRANSLATEBUTTON",
+    "value": "Русский"
+  },
+  {
+    "key": "MEXITBUTTON",
+    "value": "Выход"
+  },
+  {
+    "key": "MBACKBUTTON",
+    "value": "Назад"
+  },
+  {
+    "key": "MPROGRAMMER",
+    "value": "Программирование"
+  },
+  {
+    "key": "MARTIST",
+    "value": "Искусство"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "key": "MPLAYBUTTON",
+    "value": "遊ぶ"
+  },
+  {
+    "key": "MCREDITSBUTTON",
+    "value": "クレジット"
+  },
+  {
+    "key": "MINSTRUCTIONBUTTON",
+    "value": "説明書"
+  },
+  {
+    "key": "MTRANSLATEBUTTON",
+    "value": "日本語"
+  },
+  {
+    "key": "MEXITBUTTON",
+    "value": "出口"
+  },
+  {
+    "key": "MBACKBUTTON",
+    "value": "戻る"
+  },
+  {
+    "key": "MPROGRAMMER",
+    "value": "プログラミング"
+  },
+  {
+    "key": "MARTIST",
+    "value": "美術"
+  }
+]

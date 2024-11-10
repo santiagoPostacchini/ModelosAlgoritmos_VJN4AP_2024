@@ -1,0 +1,34 @@
+[
+  {
+    "key": "MPLAYBUTTON",
+    "value": "Play"
+  },
+  {
+    "key": "MCREDITSBUTTON",
+    "value": "Credits"
+  },
+  {
+    "key": "MINSTRUCTIONBUTTON",
+    "value": "Instructions"
+  },
+  {
+    "key": "MTRANSLATEBUTTON",
+    "value": "English"
+  },
+  {
+    "key": "MEXITBUTTON",
+    "value": "Exit"
+  },
+  {
+    "key": "MBACKBUTTON",
+    "value": "Back"
+  },
+  {
+    "key": "MPROGRAMMER",
+    "value": "Programing"
+  },
+  {
+    "key": "MARTIST",
+    "value": "Art"
+  }
+]
