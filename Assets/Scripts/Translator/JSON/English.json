@@ -30,5 +30,13 @@
   {
     "key": "MARTIST",
     "value": "Art"
+  },
+  {
+    "key": "HUDRESTARTBUTTON",
+    "value": "Retry"
+  },
+  {
+    "key": "HUDMENUBUTTON",
+    "value": "Back to menu"
   }
 ]

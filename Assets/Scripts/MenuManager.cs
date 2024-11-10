@@ -15,9 +15,11 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         audioSrc = GetComponent<AudioSource>();
+        LocalizationManager.instance.OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
         instructionsPannel.SetActive(false);
         lvlsPannel.SetActive(false);
         creditPannel.SetActive(false);
+        
     }
 
     public void PlaySound()

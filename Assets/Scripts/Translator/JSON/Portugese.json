@@ -30,5 +30,13 @@
   {
     "key": "MARTIST",
     "value": "Arte"
+  },
+  {
+    "key": "HUDRESTARTBUTTON",
+    "value": "Tentar novamente"
+  },
+  {
+    "key": "HUDMENUBUTTON",
+    "value": "Voltar ao cardápio"
   }
 ]

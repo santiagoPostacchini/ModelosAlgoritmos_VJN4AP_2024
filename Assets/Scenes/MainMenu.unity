@@ -674,7 +674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4d5ac07c529514daafe91a311d39fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  language: 1
+  language: 0
+  actualIndex: 0
   _data:
   - language: 0
     data:
@@ -691,6 +692,15 @@ MonoBehaviour:
   - language: 2
     data:
     - {fileID: 4900000, guid: 8badffc9ff9c99b428bbeb155075e092, type: 3}
+  _textsToTranslate:
+  - {fileID: 67988316}
+  - {fileID: 1177069799}
+  - {fileID: 1971887732}
+  - {fileID: 1275058929}
+  - {fileID: 851341145}
+  - {fileID: 140894804}
+  - {fileID: 256428072}
+  - {fileID: 213587272}
 --- !u!4 &204635634
 Transform:
   m_ObjectHideFlags: 0
@@ -2758,15 +2768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef15ee10fbd778a4b989c7339242533a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textsToTranslate:
-  - {fileID: 67988316}
-  - {fileID: 1177069799}
-  - {fileID: 1971887732}
-  - {fileID: 1275058929}
-  - {fileID: 851341145}
-  - {fileID: 140894804}
-  - {fileID: 256428072}
-  - {fileID: 213587272}
 --- !u!114 &1275058929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3010,7 +3011,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1328472843
@@ -3499,7 +3500,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Programing
+  m_text: Programming
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ae00890be035634da0ba28fe51dd0f5, type: 2}
   m_sharedMaterial: {fileID: -4663069696066426549, guid: 9ae00890be035634da0ba28fe51dd0f5, type: 2}

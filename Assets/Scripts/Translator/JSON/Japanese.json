@@ -30,5 +30,13 @@
   {
     "key": "MARTIST",
     "value": "美術"
+  },
+  {
+    "key": "HUDRESTARTBUTTON",
+    "value": "リトライ"
+  },
+  {
+    "key": "HUDMENUBUTTON",
+    "value": "メニューに戻る"
   }
 ]

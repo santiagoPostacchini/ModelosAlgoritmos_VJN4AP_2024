@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         hudPanel.SetActive(true);
         Time.timeScale = 1;
         timer = 180f;
+        LocalizationManager.instance.OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
     }
 
     private void Update()
@@ -86,8 +88,8 @@ public class GameManager : MonoBehaviour
     public void SetFinalScores(GameObject panel)
     {
         Text[] scoreTexts = panel.GetComponentsInChildren<Text>();
-        scoreTexts[0].text = "Player 1 got " + player1Points + " points!";
-        scoreTexts[1].text = "Player 2 got " + player2Points + " points!";
+        scoreTexts[0].text = player1Points + " " + LocalizationManager.instance.GetTranslate("HUDPTSPL1");
+        scoreTexts[1].text = player2Points + " " + LocalizationManager.instance.GetTranslate("HUDPTSPL2");
     }
 
     public void RestartScene()

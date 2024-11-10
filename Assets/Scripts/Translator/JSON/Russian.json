@@ -30,5 +30,13 @@
   {
     "key": "MARTIST",
     "value": "Искусство"
+  },
+  {
+    "key": "HUDRESTARTBUTTON",
+    "value": "Перезапуск"
+  },
+  {
+    "key": "HUDMENUBUTTON",
+    "value": "Меню"
   }
 ]
