@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
         hudPanel.SetActive(true);
         Time.timeScale = 1;
         timer = 180f;
-        LocalizationManager.instance.OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+        if(LocalizationManager.instance != null)
+            LocalizationManager.instance.OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
     }
 
     private void Update()

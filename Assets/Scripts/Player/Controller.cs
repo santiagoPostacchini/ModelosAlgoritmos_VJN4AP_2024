@@ -13,8 +13,9 @@ public class Controller : IController
     KeyCode _left;
     KeyCode _right;
     KeyCode _shoot;
+    KeyCode _rewind;
 
-    public Controller(Model m, View v, KeyCode up, KeyCode down, KeyCode left, KeyCode right, KeyCode shoot)
+    public Controller(Model m, View v, KeyCode up, KeyCode down, KeyCode left, KeyCode right, KeyCode shoot, KeyCode rewind)
     {
         _m = m;
 
@@ -30,6 +31,7 @@ public class Controller : IController
         _left = left;
         _right = right;
         _shoot = shoot;
+        _rewind = rewind;
     }
 
     public void OnUpdate()
@@ -49,6 +51,11 @@ public class Controller : IController
         if (Input.GetKeyDown(_shoot))
         {
             _m.Fire();
+        } 
+
+        if(Input.GetKeyDown(_rewind)) 
+        {
+            _m.Rewind();
         }
 
         if (Input.GetKey(_up)) //Arriba

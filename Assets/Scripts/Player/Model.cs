@@ -5,10 +5,10 @@ using System;
 using Unity.VisualScripting;
 using UnityEditor;
 
-public class Model : MonoBehaviour, IDamage
+public class Model : Rewind, IDamage
 {
     [SerializeField] private float _maxLife = 100;
-    private float _life;
+    [SerializeField] private float _life;
     [SerializeField] private float _lifePerSeconds;
     private int points = 0;
 
@@ -18,6 +18,7 @@ public class Model : MonoBehaviour, IDamage
     public KeyCode LEFT;
     public KeyCode RIGHT;
     public KeyCode SHOOT;
+    public KeyCode REWIND;
 
     public GameManager gm;
     public Transform bulletSpawn;
@@ -43,27 +44,25 @@ public class Model : MonoBehaviour, IDamage
     IController _controller;
     View _view;
 
-    // Por fuera del codigo solo puedo +=  o  -= funciones al Action.
-    // No puedo ejecutar Actions [onDeath()], ni igualar Actions [onDeath = null]
     public event Action<float> onGetDmg = delegate { };
     public event Action<float> onHeal = delegate { };
     public event Action onDeath = delegate { };
     public event Action<int> onAddPoints = delegate { };
     public event Action<Vector2> onMove = delegate { };
 
-    void Awake()
+    public override void Awake()
     {
         _life = _maxLife;
-        rb = GetComponent<Rigidbody2D>();
+        base.Awake();
     }
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         _view = GetComponent<View>();
-        _controller = new Controller(this, _view, UP, DOWN, LEFT, RIGHT, SHOOT);
+        _controller = new Controller(this, _view, UP, DOWN, LEFT, RIGHT, SHOOT, REWIND);
     }
 
-    // Update is called once per frame
     void Update()
     {
         _controller.OnUpdate();
@@ -132,4 +131,84 @@ public class Model : MonoBehaviour, IDamage
         isAlive = false;
         onDeath();
     }
+
+    public void Rewind()
+    {
+        ManagerMemento.instance.GoBack(this);
+    }
+
+    public override IEnumerator StartToRec()
+    {
+        while (true)
+        {
+            if (!remembering)
+            {
+                memento.Rec(new object[] { transform.position, transform.rotation, _life, isAlive });
+            }
+            else
+            {
+                Debug.Log("NO RECORDANDO");
+            }
+            yield return new WaitForSeconds(recordInterval);
+        }
+    }
+
+    protected override void BeRewind(ParamsMemento wrappers)
+    {
+        _life = (float)wrappers.parameters[2];
+        isAlive = (bool)wrappers.parameters[3];
+        transform.position = (Vector3)wrappers.parameters[0];
+        transform.rotation = (Quaternion)wrappers.parameters[1];
+    }
+
+
+    #region INTERPOLATION
+    /*private void PerformInterpolation()
+    {
+        if (_rememberParams.Count < 2) return;  // Necesitamos al menos 2 estados para hacer la interpolación
+
+        // Recorremos todos los pares consecutivos de estados
+        for (int i = 0; i < _rememberParams.Count - 1; i++)
+        {
+            ParamsMemento initialState = _rememberParams[i];  // Estado actual
+            ParamsMemento finalState = _rememberParams[i + 1];  // Estado siguiente
+
+            // Normalizamos el tiempo de interpolación entre 0 y 1
+            _interpolationTime += Time.deltaTime;
+
+            float t = Mathf.Clamp01(_interpolationTime / _interpolationDuration);
+
+            // Interpolamos entre los valores de los estados (posición, rotación, salud, estado de vida)
+            for (int j = 0; j < initialState.parameters.Length; j++)
+            {
+                // Verificamos el tipo de cada parámetro y realizamos la interpolación
+                if (initialState.parameters[j] is Vector3)
+                {
+                    transform.position = Vector3.Lerp((Vector3)initialState.parameters[j], (Vector3)finalState.parameters[j], t);
+                }
+                else if (initialState.parameters[j] is Quaternion)
+                {
+                    transform.rotation = Quaternion.Lerp((Quaternion)initialState.parameters[j], (Quaternion)finalState.parameters[j], t);
+                }
+                else if (initialState.parameters[j] is float)
+                {
+                    // Interpolando la salud
+                    _life = Mathf.Lerp((float)initialState.parameters[j], (float)finalState.parameters[j], t);
+                }
+                else if (initialState.parameters[j] is bool)
+                {
+                    // Interpolando el estado de vida (si está vivo o muerto)
+                    isAlive = (bool)finalState.parameters[j];
+                }
+            }
+
+            // Si el tiempo de interpolación ha pasado para este par, continuamos al siguiente par
+            if (t >= 1f)
+            {
+                // Reiniciamos el tiempo de interpolación para el siguiente par
+                _interpolationTime = 0f;
+            }
+        }
+    }*/
+    #endregion
 }
