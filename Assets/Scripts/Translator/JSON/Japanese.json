@@ -38,5 +38,13 @@
   {
     "key": "HUDMENUBUTTON",
     "value": "メニューに戻る"
+  },
+  {
+    "key": "HUDPTSPL1",
+    "value": "プレイヤーのポイント 1"
+  },
+  {
+    "key": "HUDPTSPL2",
+    "value": "プレイヤーのポイント 2"
   }
 ]

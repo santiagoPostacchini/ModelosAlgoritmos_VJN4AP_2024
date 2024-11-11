@@ -11,11 +11,9 @@ public class MenuManager : MonoBehaviour
     public GameObject instructionsPannel;
     public GameObject lvlsPannel;
     public GameObject creditPannel;
-    
     private void Awake()
     {
         audioSrc = GetComponent<AudioSource>();
-        LocalizationManager.instance.OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
         instructionsPannel.SetActive(false);
         lvlsPannel.SetActive(false);
         creditPannel.SetActive(false);

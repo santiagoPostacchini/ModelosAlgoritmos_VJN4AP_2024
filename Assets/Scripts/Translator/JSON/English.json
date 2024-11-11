@@ -38,5 +38,13 @@
   {
     "key": "HUDMENUBUTTON",
     "value": "Back to menu"
+  },
+  {
+    "key": "HUDPTSPL1",
+    "value": "points for Player 1"
+  },
+  {
+    "key": "HUDPTSPL2",
+    "value": "points for Player 2"
   }
 ]

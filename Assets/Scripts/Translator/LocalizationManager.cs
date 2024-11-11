@@ -6,30 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class LocalizationManager : MonoBehaviour
 {
-    public static LocalizationManager instance = default;
+    public static LocalizationManager instance;
     public Languages language = default;
 
     public int actualIndex = 0;
+    [SerializeField] private DataLocalization[] _data;
 
-    [SerializeField] private DataLocalization[] _data = default;
-
-    [SerializeField] private Dictionary<Languages, Dictionary<string, string>> _translate = new();
-
+    private Dictionary<Languages, Dictionary<string, string>> _translate;
     public ButtonTranslate[] _textsToTranslate = new ButtonTranslate[0];
-
 
     private void Awake()
     {
-        instance = this;
-        DontDestroyOnLoad(this);
-    }
-
-    private void Start()
-    {
-        TranslateButton(actualIndex);
-        foreach (var item in LocalizationManager.instance._textsToTranslate)
+        if (instance == null)
         {
-            item.textUI.text = LocalizationManager.instance.GetTranslate(item.ID);
+            instance = this;
+            DontDestroyOnLoad(this);
+            _translate = LanguageU.LoadTranslate(_data);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -53,12 +50,10 @@ public class LocalizationManager : MonoBehaviour
 
     public void TranslateButton(int index)
     {
-        Languages actualLang = (Languages)index;
-        Debug.Log($"Accedi a {actualLang}");
-        language = actualLang;
-        foreach (var item in LocalizationManager.instance._textsToTranslate)
+        language = (Languages)index;
+        foreach (var item in _textsToTranslate)
         {
-            item.textUI.text = LocalizationManager.instance.GetTranslate(item.ID);
+            item.textUI.text = GetTranslate(item.ID);
         }
     }
 }

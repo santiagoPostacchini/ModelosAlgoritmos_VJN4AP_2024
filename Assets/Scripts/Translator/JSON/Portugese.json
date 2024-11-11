@@ -38,5 +38,13 @@
   {
     "key": "HUDMENUBUTTON",
     "value": "Voltar ao cardápio"
+  },
+  {
+    "key": "HUDPTSPL1",
+    "value": "pontos para Jogador 1"
+  },
+  {
+    "key": "HUDPTSPL2",
+    "value": "pontos para Jogador 2"
   }
 ]

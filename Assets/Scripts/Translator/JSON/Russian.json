@@ -38,5 +38,13 @@
   {
     "key": "HUDMENUBUTTON",
     "value": "Меню"
+  },
+  {
+    "key": "HUDPTSPL1",
+    "value": "Очки для игрока 1"
+  },
+  {
+    "key": "HUDPTSPL2",
+    "value": "Очки для игрока 2"
   }
 ]
