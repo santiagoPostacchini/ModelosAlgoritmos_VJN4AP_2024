@@ -30,16 +30,17 @@ public class Model : Rewind, IDamage
     public bool isCooldown = false;
     public bool isInmortal = false;
     public bool isFreezeBullet = false;
-    
+
     //public int reviveDuration;
     //public bool isKnocked = false;
     public bool isAlive = true;
-    
+
     //public ReviveText reviveTimer;
 
     //public Bullet fireball;
     //public FreezeBullet freezeball;
     //public HUD Hud;
+    public GameObject shieldEffect;
 
     IController _controller;
     View _view;
@@ -81,13 +82,16 @@ public class Model : Rewind, IDamage
 
     public void TakeDamage(float dmg)
     {
-        _life -= dmg;
-
-        onGetDmg(_life / _maxLife);
-
-        if (_life <= 0)
+        if(!isInmortal)
         {
-            Death();
+            _life -= dmg;
+
+            onGetDmg(_life / _maxLife);
+
+            if (_life <= 0)
+            {
+                Death();
+            }
         }
     }
 
@@ -159,6 +163,41 @@ public class Model : Rewind, IDamage
         isAlive = (bool)wrappers.parameters[3];
         transform.position = (Vector3)wrappers.parameters[0];
         transform.rotation = (Quaternion)wrappers.parameters[1];
+    }
+
+    public void AddHealth(int l)
+    {
+        _life += l;
+        onHeal(_life / _maxLife);
+        if (_life > _maxLife)
+        {
+            _life = 100;
+        }
+        Debug.Log($"Heal effect, actual life: {_life}");
+    }
+
+    private IEnumerator ApplyShield(int time)
+    {
+        //Debug.Log("Empezo escudo");
+        isInmortal = true;
+        shieldEffect.SetActive(true);
+        yield return new WaitForSeconds(time);
+        shieldEffect.SetActive(false);
+        isInmortal = false;
+        //Debug.Log("Termino escudo");
+    }
+
+    public IEnumerator AddSpeed(int s)
+    {
+        speed += s;
+        Debug.Log($"Speed effect, actual speed: {speed}");
+        yield return new WaitForSeconds(s/1.5f);
+        speed -= s;
+    }
+
+    public void StartShield(int t)
+    {
+        StartCoroutine(ApplyShield(t));
     }
 
 
