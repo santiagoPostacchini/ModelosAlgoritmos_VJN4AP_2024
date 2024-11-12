@@ -2,54 +2,88 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PotionFactory : MonoBehaviour
 {
     public static PotionFactory Instance;
 
-    // Dictionary de pools segun el prefab de enemigo que quiera
-    private Dictionary<Potion, ObjectPool<Potion>> enemyPools = new Dictionary<Potion, ObjectPool<Potion>>();
-    public Potion[] potionsToPool;
+    private ObjectPool<Potion> potionPool;
     public int stonks = 10;
     public bool dynamic = true;
 
-    void Start()
+    public Sprite[] potionSprites;
+
+    private void Awake()
     {
         Instance = this;
-        foreach (Potion p in potionsToPool)
+        potionPool = new ObjectPool<Potion>(CreatePotion, Potion.TurnOnOff, stonks, dynamic);
+    }
+
+    private Potion CreatePotion()
+    {
+        GameObject potionObject = new GameObject("Potion");
+        BasicPotion potion = potionObject.AddComponent<BasicPotion>();
+        potionObject.AddComponent<SpriteRenderer>();
+
+        CircleCollider2D collider = potionObject.AddComponent<CircleCollider2D>();
+
+        potionObject.transform.SetParent(transform);
+
+        return potion;
+    }
+
+    public Potion GetPotion()
+    {
+        Potion potion = potionPool.GetObject();
+
+        if (potion is BasicPotion basicPotion) // Te decoro
         {
-            if (!enemyPools.ContainsKey(p))
+            basicPotion.SetEffects(GetRandomEffects());
+            SpriteRenderer renderer = basicPotion.GetComponent<SpriteRenderer>();
+            renderer.sprite = GetRandomSprite();
+        }
+
+        return potion;
+    }
+
+    public void ReturnPotion(Potion potion)
+    {
+        if (potion is BasicPotion basicPotion) //Te desdecoro ahre
+        {
+            basicPotion.ClearEffects();
+        }
+
+        potionPool.ReturnObject(potion);
+    }
+
+    private IPotionEffect[] GetRandomEffects()
+    {
+        List<IPotionEffect> allEffects = new List<IPotionEffect>
+        {
+            new HealthEffect(),
+            new SpeedEffect(),
+            new ShieldEffect()
+        };
+
+        List<IPotionEffect> selectedEffects = new List<IPotionEffect>();
+        int effectCount = Random.Range(1, allEffects.Count + 1);
+
+        while (selectedEffects.Count < effectCount)
+        {
+            int randomIndex = Random.Range(0, allEffects.Count);
+            IPotionEffect randomEffect = allEffects[randomIndex];
+            if (!selectedEffects.Contains(randomEffect))
             {
-                // Crear un pool si no existe una para ese enemigo
-                enemyPools[p] = new ObjectPool<Potion>(() => InstantiatePotion(p), Potion.TurnOnOff, stonks, dynamic);
+                selectedEffects.Add(randomEffect);
             }
         }
+
+        return selectedEffects.ToArray();
     }
 
-    private Potion InstantiatePotion(Potion p)
+    private Sprite GetRandomSprite()
     {
-        return Instantiate(p, transform);
-    }
-
-    public Potion GetPotion(Potion p)
-    {
-        if (!enemyPools.ContainsKey(p))
-        {
-            enemyPools[p] = new ObjectPool<Potion>(() => InstantiatePotion(p), Potion.TurnOnOff, stonks, dynamic);
-        }
-
-        return enemyPools[p].GetObject();
-    }
-
-    public void ReturnPotion(Potion p)
-    {
-        // Encontrar la pool y traer el enemigo
-        foreach (var poolEntry in enemyPools)
-        {
-            if (poolEntry.Key.GetType() == p.GetType())
-            {
-                poolEntry.Value.ReturnObject(p);
-                return;
-            }
-        }
+        int randomIndex = Random.Range(0, potionSprites.Length);
+        return potionSprites[randomIndex];
     }
 }

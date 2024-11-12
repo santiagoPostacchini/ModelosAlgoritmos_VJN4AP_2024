@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Potion : MonoBehaviour
@@ -9,10 +10,22 @@ public abstract class Potion : MonoBehaviour
     private float amplitude = 0.5f;
     private float frecuency = 1f;
 
+    public PotionConfig config { get; private set; }
+
     protected virtual void Start()
     {
         posOrigin = transform.position;
+        transform.localScale = new Vector3(.1f,.1f,.1f);
+        this.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+        this.GetComponent<SpriteRenderer>().sortingOrder = 3;
     }
+
+    public void Initialize(PotionConfig config)
+    {
+        this.config = config;
+        GetComponent<SpriteRenderer>().sprite = config.potionSprite;
+    }
+
     public abstract void Use(Model player);
 
     public virtual void Reset()
@@ -48,4 +61,5 @@ public abstract class Potion : MonoBehaviour
             PotionFactory.Instance.ReturnPotion(this);
         }
     }
+    
 }

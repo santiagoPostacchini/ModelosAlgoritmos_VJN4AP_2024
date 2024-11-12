@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2237382004659705705}
   - component: {fileID: 3948884487714998630}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Hoyo A
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: a5337c4e5f462c34b85029bff9efdc2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,9 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9119722234036851609}
   - component: {fileID: 1135550463263450393}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Hoyo B
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,9 +154,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: a5337c4e5f462c34b85029bff9efdc2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -179,9 +179,9 @@ GameObject:
   - component: {fileID: 9016202966524600722}
   - component: {fileID: 2777329076404011464}
   - component: {fileID: 7767378844251618026}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Lapida B
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,9 +239,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 31e29e0c3ae9fd34a83444379d9ddca6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -309,9 +309,9 @@ GameObject:
   - component: {fileID: 2320500931804391484}
   - component: {fileID: 2089176712267660165}
   - component: {fileID: 1513631075304928104}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Lapida Secundaria Izq
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,9 +369,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: f40e992119f480545ad07ab2b82428ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -439,9 +439,9 @@ GameObject:
   - component: {fileID: 383920546867711356}
   - component: {fileID: 2859248663448096643}
   - component: {fileID: 7729340953300252761}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Lapida D
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,9 +499,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 57650cdf0575f434d815e5797206b584, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 8550279428360640273}
   m_Layer: 0
   m_Name: Piso
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -628,8 +628,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1548868087
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5e52197d4c45b5e4e96b262e731ab462, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -652,9 +652,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3923163540838342245}
   - component: {fileID: 366262533926475701}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Pared 2
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -745,7 +745,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.32, y: 7.29, z: -0.5350462}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6265128, y: 0.6265128, z: 0.61877805}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8982609653176982856}
@@ -781,9 +781,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3874767279153859539}
   - component: {fileID: 7753825700155463912}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DecoNat
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -841,9 +841,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 9d9dc0ca01e57f94fb5c3c72345600a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -865,9 +865,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7462957241949453883}
   - component: {fileID: 4637616903183139738}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Simbolo Sec (1)
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -925,9 +925,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3e763098e719b2543b34bc492d5ebbfe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -949,9 +949,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8487816456759768746}
   - component: {fileID: 8021670673345331185}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Simbolo Sec
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1009,9 +1009,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3e763098e719b2543b34bc492d5ebbfe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1033,9 +1033,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4668370418065918101}
   - component: {fileID: 6077020246498180862}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Rejas
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1093,9 +1093,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 3a241bf9581ac724082af7eefc942004, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1117,9 +1117,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7312073359034756230}
   - component: {fileID: 1887141245002153025}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Pared 2 (2)
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1194,9 +1194,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2026528535117512776}
   - component: {fileID: 774168711257327312}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Pared 2 (3)
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1272,9 +1272,9 @@ GameObject:
   - component: {fileID: 3679572522747511309}
   - component: {fileID: 6649418228662738097}
   - component: {fileID: 1542968004115407356}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Lapida Principal
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1332,9 +1332,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: d3a455c9470c9c14eb779ef035f4c8aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1402,9 +1402,9 @@ GameObject:
   - component: {fileID: 3668583591147065384}
   - component: {fileID: 7554907615060926485}
   - component: {fileID: 6837986399683141572}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Lapida Secundaria Der
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1462,9 +1462,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: f40e992119f480545ad07ab2b82428ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1531,9 +1531,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7510002844818013781}
   - component: {fileID: 3840329599421891242}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Simbolo Central
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1591,9 +1591,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 1b01710d8cd732b488e6b4c40ab0433e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1616,9 +1616,9 @@ GameObject:
   - component: {fileID: 4933566364271776026}
   - component: {fileID: 6799375071063662576}
   - component: {fileID: 2304890411754463349}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Lapida F
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1676,9 +1676,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 57650cdf0575f434d815e5797206b584, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1746,9 +1746,9 @@ GameObject:
   - component: {fileID: 7396759541771568441}
   - component: {fileID: 2282207128730065132}
   - component: {fileID: 6527139599471240802}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Lapida A
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1806,9 +1806,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 31e29e0c3ae9fd34a83444379d9ddca6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1875,9 +1875,9 @@ GameObject:
   m_Component:
   - component: {fileID: 137202826550826066}
   - component: {fileID: 7264175623302833729}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Pared 2 (1)
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1953,9 +1953,9 @@ GameObject:
   - component: {fileID: 5079982202361391139}
   - component: {fileID: 1162538201356364062}
   - component: {fileID: 4185108499626773173}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Lapida C
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2013,9 +2013,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: a48211f605580434db0226ce8614a477, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2083,9 +2083,9 @@ GameObject:
   - component: {fileID: 5142742720762482051}
   - component: {fileID: 3758263090080743692}
   - component: {fileID: 2116331774709243775}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Lapida E
-  m_TagString: Untagged
+  m_TagString: Asset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2143,9 +2143,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -208608477
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: a48211f605580434db0226ce8614a477, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

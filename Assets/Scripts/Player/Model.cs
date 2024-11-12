@@ -12,7 +12,7 @@ public class Model : Rewind, IDamage
     [SerializeField] private float _lifePerSeconds;
     private int points = 0;
 
-    [Header("Input Keys")]
+    
     public KeyCode UP;
     public KeyCode DOWN;
     public KeyCode LEFT;
@@ -40,7 +40,12 @@ public class Model : Rewind, IDamage
     //public Bullet fireball;
     //public FreezeBullet freezeball;
     //public HUD Hud;
+
+    [Header("Potion Effects")]
     public GameObject shieldEffect;
+    public int shieldDuration = 5;
+    public int lifeToAdd = 20;
+    public int speedToAdd = 3;
 
     IController _controller;
     View _view;
@@ -50,6 +55,7 @@ public class Model : Rewind, IDamage
     public event Action onDeath = delegate { };
     public event Action<int> onAddPoints = delegate { };
     public event Action<Vector2> onMove = delegate { };
+    public event Action onPotionEffect = delegate { };
 
     public override void Awake()
     {
@@ -178,13 +184,13 @@ public class Model : Rewind, IDamage
 
     private IEnumerator ApplyShield(int time)
     {
-        //Debug.Log("Empezo escudo");
+        Debug.Log("Empezo escudo");
         isInmortal = true;
         shieldEffect.SetActive(true);
         yield return new WaitForSeconds(time);
         shieldEffect.SetActive(false);
         isInmortal = false;
-        //Debug.Log("Termino escudo");
+        Debug.Log("Termino escudo");
     }
 
     public IEnumerator AddSpeed(int s)

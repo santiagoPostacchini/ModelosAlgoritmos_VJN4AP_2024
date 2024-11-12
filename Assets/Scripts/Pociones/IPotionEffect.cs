@@ -4,29 +4,29 @@ using UnityEngine;
 
 public interface IPotionEffect
 {
-    void ApplyEffect(Model player, int a = 0);
+    void ApplyEffect(Model player);
 }
 
 public class HealthEffect : IPotionEffect
 {
-    public void ApplyEffect(Model player, int life)
+    public void ApplyEffect(Model player)
     {
-        player.AddHealth(life);
+        player.AddHealth(player.lifeToAdd);
     }
 }
 
 public class SpeedEffect : IPotionEffect
 {
-    public void ApplyEffect(Model player, int speed)
+    public void ApplyEffect(Model player)
     {
-        player.AddSpeed(speed);
+        player.AddSpeed(player.speedToAdd);
     }
 }
 
 public class ShieldEffect : IPotionEffect
 {
-    public void ApplyEffect(Model player, int duration)
+    public void ApplyEffect(Model player)
     {
-        player.StartShield(duration);
+        player.StartShield(player.shieldDuration);
     }
 }

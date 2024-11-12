@@ -53,7 +53,7 @@ public class Controller : IController
             _m.Fire();
         } 
 
-        if(Input.GetKeyDown(_rewind)) 
+        if(Input.GetKey(_rewind)) 
         {
             _m.Rewind();
         }

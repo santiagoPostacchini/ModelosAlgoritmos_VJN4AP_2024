@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float spawnRate;
+    private float spawnRate;
     private int spawnChanceCompare;
 
     void Start()

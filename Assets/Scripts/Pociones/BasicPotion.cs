@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class BasicPotion : Potion
 {
-    private IPotionEffect _effect;
+    private List<IPotionEffect> _effects = new List<IPotionEffect>();
 
-    public BasicPotion(IPotionEffect effect)
+    public void SetEffects(params IPotionEffect[] effects)
     {
-        _effect = effect;
+        _effects = new List<IPotionEffect>(effects);
     }
 
     public override void Use(Model player)
     {
-        _effect.ApplyEffect(player);
+        foreach (var effect in _effects)
+        {
+            effect.ApplyEffect(player);
+        }
+    }
+
+    public void ClearEffects()
+    {
+        _effects.Clear();
     }
 }
