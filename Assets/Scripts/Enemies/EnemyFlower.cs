@@ -13,13 +13,11 @@ public class EnemyFlower : Enemy, IDamage
 
     // Variables privadas
     private float timer; // Contador para el ataque
-    private bool isAttacking = false; // Estado de ataque
     //private bool isFreezed; // Estado de freeze
 
     // Inicialización
     void Start()
     {
-        // Inicializar el contador y el estado de ataque
         timer = 0f;
         //isFreezed = false;
         freezeTime = 0;
@@ -64,20 +62,13 @@ public class EnemyFlower : Enemy, IDamage
     // Corrutina para el ataque
     IEnumerator Attack()
     {
-        // Cambiar el estado de ataque a verdadero
-        isAttacking = true;
-
-        // Encontrar al jugador más cercano
         Transform target = FindClosestPlayer();
 
-        // Si hay un jugador cercano, mirarlo y dispararle
         if (target != null)
         {
-            // Disparar tres bolas de fuego
             ShootFireballs(target);
         }
 
-        // Reiniciar el contador
         ResetTimer();
 
         yield return null;
@@ -127,7 +118,6 @@ public class EnemyFlower : Enemy, IDamage
         }
     }
 
-    // Función para disparar tres bolas de fuego
     void ShootFireballs(Transform target)
     {
         // Calcular el vector dirección entre el enemigo y el jugador
@@ -177,14 +167,9 @@ public class EnemyFlower : Enemy, IDamage
         }
     }
 
-    // Función para reiniciar el contador
     void ResetTimer()
     {
-        // Poner el contador a cero
         timer = 0f;
-
-        // Cambiar el estado de ataque a falso
-        isAttacking = false;
     }
 
     //public void Freeze(float timeToFreeze)

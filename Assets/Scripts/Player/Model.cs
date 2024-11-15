@@ -45,7 +45,7 @@ public class Model : Rewind, IDamage
     public GameObject shieldEffect;
     public int shieldDuration = 5;
     public int lifeToAdd = 20;
-    public int speedToAdd = 3;
+    public float speedToAdd = 3;
 
     IController _controller;
     View _view;
@@ -192,12 +192,16 @@ public class Model : Rewind, IDamage
         isInmortal = false;
         Debug.Log("Termino escudo");
     }
+    public void StartSpeed(float t)
+    {
+        StartCoroutine(AddSpeed(t));
+    }
 
-    public IEnumerator AddSpeed(int s)
+    public IEnumerator AddSpeed(float s)
     {
         speed += s;
         Debug.Log($"Speed effect, actual speed: {speed}");
-        yield return new WaitForSeconds(s/1.5f);
+        yield return new WaitForSeconds(s*2);
         speed -= s;
     }
 

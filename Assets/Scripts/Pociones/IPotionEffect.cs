@@ -19,7 +19,7 @@ public class SpeedEffect : IPotionEffect
 {
     public void ApplyEffect(Model player)
     {
-        player.AddSpeed(player.speedToAdd);
+        player.StartSpeed(player.speedToAdd);
     }
 }
 

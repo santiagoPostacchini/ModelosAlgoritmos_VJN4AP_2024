@@ -661,7 +661,7 @@ MonoBehaviour:
   shieldEffect: {fileID: 1537516088}
   shieldDuration: 5
   lifeToAdd: 20
-  speedToAdd: 3
+  speedToAdd: 1.5
 --- !u!212 &395122046
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1069,7 +1069,6 @@ GameObject:
   m_Component:
   - component: {fileID: 809038844}
   - component: {fileID: 809038846}
-  - component: {fileID: 809038845}
   m_Layer: 8
   m_Name: EscudoEfecto
   m_TagString: Untagged
@@ -1092,41 +1091,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1179632156}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &809038845
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809038843}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.015, y: 0.06}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!212 &809038846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1503,7 +1467,7 @@ MonoBehaviour:
   shieldEffect: {fileID: 809038843}
   shieldDuration: 5
   lifeToAdd: 20
-  speedToAdd: 3
+  speedToAdd: 1.5
 --- !u!114 &1179632158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,7 +1865,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1537516091}
   - component: {fileID: 1537516090}
-  - component: {fileID: 1537516089}
   m_Layer: 8
   m_Name: EscudoEfecto
   m_TagString: Untagged
@@ -1909,41 +1872,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!58 &1537516089
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537516088}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.015, y: 0.06}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!212 &1537516090
 SpriteRenderer:
   m_ObjectHideFlags: 0
