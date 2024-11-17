@@ -46,5 +46,29 @@
   {
     "key": "HUDPTSPL2",
     "value": "プレイヤーのポイント 2"
+  },
+  {
+    "key": "MP1",
+    "value": "プレーヤー 1"
+  },
+  {
+    "key": "MP2",
+    "value": "プレーヤー 2"
+  },
+  {
+    "key": "P1KEY",
+    "value": "WASD - 動き C - 魔法の弾丸"
+  },
+  {
+    "key": "P2KEY",
+    "value": "矢 - 動き C - 魔法の弾丸"
+  },
+  {
+    "key": "MHERO",
+    "value": "ヒーローたち!"
+  },
+  {
+    "key": "MEVIL",
+    "value": "魂に悪が及ばないようにしてください"
   }
 ]

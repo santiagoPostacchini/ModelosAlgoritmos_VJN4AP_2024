@@ -10,6 +10,8 @@ public abstract class Rewind : MonoBehaviour
 
     [SerializeField] protected float recordDuration = 5f;
 
+    [SerializeField] protected float timeBetweenMemories = 0.1f;
+
     public bool remembering = false;
 
     /// <summary>
@@ -38,15 +40,22 @@ public abstract class Rewind : MonoBehaviour
     /// Pregunto si tengo recuerdos y en caso de tener tomo el ultimo llamando a la funcion que seteo el hijo
     /// Y pasando por parametro el ultimo estado a recordar que trae mi MementoState
     /// </summary>
-    public void Action()
+    public IEnumerator Action()
     {
         int watchdog = 0;
         while (memento.MemoriesQuantity() > 0 && watchdog < 500)
         {
             watchdog++;
             BeRewind(memento.Remember());
+            Debug.Log(Time.time);
+            yield return new WaitForSeconds(timeBetweenMemories);
         }
         remembering = false;
-        return;
+        yield return null;
+    }
+
+    public void StartAction()
+    {
+        StartCoroutine(Action());
     }
 }

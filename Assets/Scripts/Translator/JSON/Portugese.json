@@ -46,5 +46,29 @@
   {
     "key": "HUDPTSPL2",
     "value": "pontos para Jogador 2"
+  },
+  {
+    "key": "MP1",
+    "value": "Jogador 1"
+  },
+  {
+    "key": "MP2",
+    "value": "Jogador 2"
+  },
+  {
+    "key": "P1KEY",
+    "value": "WASD Movimento - C Balas Mágicas"
+  },
+  {
+    "key": "P2KEY",
+    "value": "WASD Movimento - C Balas Mágicas"
+  },
+  {
+    "key": "MHERO",
+    "value": "Setas Movimento - J Balas Mágicas"
+  },
+  {
+    "key": "MEVIL",
+    "value": "Não deixe o mal chegar às almas"
   }
 ]

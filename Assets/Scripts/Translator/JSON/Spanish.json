@@ -46,5 +46,29 @@
   {
     "key": "HUDPTSPL2",
     "value": "puntos para el Jugador 2"
+  },
+  {
+    "key": "MP1",
+    "value": "Jugador 1"
+  },
+  {
+    "key": "MP2",
+    "value": "Jugador 2"
+  },
+  {
+    "key": "P1KEY",
+    "value": "WASD - Moverse C - Balas Magicas"
+  },
+  {
+    "key": "P2KEY",
+    "value": "Flechas - Moverse J - Balas Magicas"
+  },
+  {
+    "key": "MHERO",
+    "value": "Heroes!"
+  },
+  {
+    "key": "MEVIL",
+    "value": "Que el mal no dañe las almas"
   }
 ]

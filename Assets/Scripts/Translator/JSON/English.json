@@ -46,5 +46,29 @@
   {
     "key": "HUDPTSPL2",
     "value": "points for Player 2"
+  },
+  {
+    "key": "MP1",
+    "value": "Player 1"
+  },
+  {
+    "key": "MP2",
+    "value": "Player 2"
+  },
+  {
+    "key": "P1KEY",
+    "value": "WASD - Movement C - Magic Bullets"
+  },
+  {
+    "key": "P2KEY",
+    "value": "Arrows - Movement J - Magic Bullets"
+  },
+  {
+    "key": "MHERO",
+    "value": "Heroes!"
+  },
+  {
+    "key": "MEVIL",
+    "value": "Don't let the evil get to the souls"
   }
 ]

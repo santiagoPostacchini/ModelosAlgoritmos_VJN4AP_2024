@@ -30,7 +30,7 @@ public class ManagerMemento : MonoBehaviour
         if (allRewinds.Contains(_r))
         {
             _r.remembering = true;
-            _r.Action();
+            _r.StartAction();
         }
     }
 }

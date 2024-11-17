@@ -32,8 +32,11 @@ public class LocalizationManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if(scene.name != "MainMenu")
+        {
+            _textsToTranslate = FindObjectsOfType<ButtonTranslate>();
+        }
         Debug.Log("Scene Loaded: " + scene.name);
-        _textsToTranslate = FindObjectsOfType<ButtonTranslate>();
         TranslateButton(actualIndex);
     }
 
