@@ -1,9 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Unity.VisualScripting;
-using UnityEditor;
 
 public class Model : Rewind, IDamage
 {
@@ -12,7 +9,7 @@ public class Model : Rewind, IDamage
     [SerializeField] private float _lifePerSeconds;
     private int points = 0;
 
-    
+
     public KeyCode UP;
     public KeyCode DOWN;
     public KeyCode LEFT;
@@ -79,6 +76,7 @@ public class Model : Rewind, IDamage
 
     public void Movement(Vector2 dir)
     {
+        if (remembering) return;
         dir.Normalize();
 
         rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * dir);
@@ -88,7 +86,7 @@ public class Model : Rewind, IDamage
 
     public void TakeDamage(float dmg)
     {
-        if(!isInmortal)
+        if (!isInmortal)
         {
             _life -= dmg;
 
@@ -153,22 +151,49 @@ public class Model : Rewind, IDamage
         {
             if (!remembering)
             {
-                memento.Rec(new object[] { transform.position, transform.rotation, _life, isAlive });
-            }
-            else
-            {
-                Debug.Log("NO RECORDANDO");
+                memento.Rec(new object[] { transform.position, transform.rotation, _life });
             }
             yield return new WaitForSeconds(recordInterval);
         }
+
     }
 
     protected override void BeRewind(ParamsMemento wrappers)
     {
-        _life = (float)wrappers.parameters[2];
-        isAlive = (bool)wrappers.parameters[3];
-        transform.position = (Vector3)wrappers.parameters[0];
-        transform.rotation = (Quaternion)wrappers.parameters[1];
+        if (wrappers == null) return;
+
+        Vector3 targetPosition = (Vector3)wrappers.parameters[0];
+        Quaternion targetRotation = (Quaternion)wrappers.parameters[1];
+        float targetHealth = (float)wrappers.parameters[2];
+
+        StartCoroutine(LerpState(targetPosition, targetRotation, targetHealth));
+    }
+
+    private IEnumerator LerpState(Vector3 targetPosition, Quaternion targetRotation, float targetHealth)
+    {
+        float elapsedTime = 0f;
+
+        // Valores actuales
+        Vector3 initialPosition = transform.position;
+        Quaternion initialRotation = transform.rotation;
+        float initialHealth = _life;
+
+        while (elapsedTime < timeBetweenMemories) //lerp lineal de toda la vida
+        {
+            float t = elapsedTime / timeBetweenMemories;
+
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
+            transform.rotation = Quaternion.Lerp(initialRotation, targetRotation, t);
+            _life = Mathf.Lerp(initialHealth, targetHealth, t);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Cuando termina los igualo para que no haya diferencias
+        transform.position = targetPosition;
+        transform.rotation = targetRotation;
+        _life = targetHealth;
     }
 
     public void AddHealth(int l)
@@ -201,7 +226,7 @@ public class Model : Rewind, IDamage
     {
         speed += s;
         Debug.Log($"Speed effect, actual speed: {speed}");
-        yield return new WaitForSeconds(s*2);
+        yield return new WaitForSeconds(s * 2);
         speed -= s;
     }
 
@@ -209,55 +234,4 @@ public class Model : Rewind, IDamage
     {
         StartCoroutine(ApplyShield(t));
     }
-
-
-    #region INTERPOLATION
-    /*private void PerformInterpolation()
-    {
-        if (_rememberParams.Count < 2) return;  // Necesitamos al menos 2 estados para hacer la interpolación
-
-        // Recorremos todos los pares consecutivos de estados
-        for (int i = 0; i < _rememberParams.Count - 1; i++)
-        {
-            ParamsMemento initialState = _rememberParams[i];  // Estado actual
-            ParamsMemento finalState = _rememberParams[i + 1];  // Estado siguiente
-
-            // Normalizamos el tiempo de interpolación entre 0 y 1
-            _interpolationTime += Time.deltaTime;
-
-            float t = Mathf.Clamp01(_interpolationTime / _interpolationDuration);
-
-            // Interpolamos entre los valores de los estados (posición, rotación, salud, estado de vida)
-            for (int j = 0; j < initialState.parameters.Length; j++)
-            {
-                // Verificamos el tipo de cada parámetro y realizamos la interpolación
-                if (initialState.parameters[j] is Vector3)
-                {
-                    transform.position = Vector3.Lerp((Vector3)initialState.parameters[j], (Vector3)finalState.parameters[j], t);
-                }
-                else if (initialState.parameters[j] is Quaternion)
-                {
-                    transform.rotation = Quaternion.Lerp((Quaternion)initialState.parameters[j], (Quaternion)finalState.parameters[j], t);
-                }
-                else if (initialState.parameters[j] is float)
-                {
-                    // Interpolando la salud
-                    _life = Mathf.Lerp((float)initialState.parameters[j], (float)finalState.parameters[j], t);
-                }
-                else if (initialState.parameters[j] is bool)
-                {
-                    // Interpolando el estado de vida (si está vivo o muerto)
-                    isAlive = (bool)finalState.parameters[j];
-                }
-            }
-
-            // Si el tiempo de interpolación ha pasado para este par, continuamos al siguiente par
-            if (t >= 1f)
-            {
-                // Reiniciamos el tiempo de interpolación para el siguiente par
-                _interpolationTime = 0f;
-            }
-        }
-    }*/
-    #endregion
 }

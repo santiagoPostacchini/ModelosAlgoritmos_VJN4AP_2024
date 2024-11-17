@@ -28,11 +28,19 @@ public class MementoState
     /// <returns></returns>
     public ParamsMemento Remember()
     {
+        if (_rememberParams.Count == 0)
+        {
+            Debug.LogWarning("No memories left to retrieve!");
+            return null;
+        }
+
         int index = _rememberParams.Count - 1;
 
         var currentParam = _rememberParams[index];
 
         _rememberParams.RemoveAt(index);
+
+        Debug.Log($"Memory removed. Remaining memories: {_rememberParams.Count}");
 
         return currentParam;
     }

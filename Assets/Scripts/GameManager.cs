@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Progress;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     public int f_points = 10;
 
     [Header("Enemy Invoker")]
-    public Enemy flowerEnemy;
     public int invok_points = 20;
     public int invok_maxLife = 60;
     public int invok_invokingChance = 50;
@@ -49,6 +48,7 @@ public class GameManager : MonoBehaviour
     public float timer;
     public int player1Points;
     public int player2Points;
+    public TextMeshProUGUI[] scoreTexts = new TextMeshProUGUI[0];
 
     private void Awake()
     {
@@ -88,9 +88,17 @@ public class GameManager : MonoBehaviour
 
     public void SetFinalScores(GameObject panel)
     {
-        Text[] scoreTexts = panel.GetComponentsInChildren<Text>();
-        scoreTexts[0].text = player1Points + " " + LocalizationManager.instance.GetTranslate("HUDPTSPL1");
-        scoreTexts[1].text = player2Points + " " + LocalizationManager.instance.GetTranslate("HUDPTSPL2");
+        for (int i = 0; i < scoreTexts.Length; i++)
+        {
+            if(i % 2 == 0)
+            {
+                scoreTexts[i].text = player1Points.ToString();
+            }
+            else
+            {
+                scoreTexts[i].text = player2Points.ToString();
+            }
+        }
     }
 
     public void RestartScene()
@@ -132,7 +140,7 @@ public class GameManager : MonoBehaviour
         losePanel.SetActive(true);
         SetFinalScores(losePanel);
         hudPanel.SetActive(false);
-        Time.timeScale = 0;
+        StopTime();
     }
     
     private void WinPanel()
@@ -140,6 +148,11 @@ public class GameManager : MonoBehaviour
         winPanel.SetActive(true);
         SetFinalScores(winPanel);
         hudPanel.SetActive(false);
+        StopTime();
+    }
+
+    void StopTime()
+    {
         Time.timeScale = 0;
     }
 }

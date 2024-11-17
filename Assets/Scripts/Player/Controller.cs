@@ -48,12 +48,13 @@ public class Controller : IController
 
     private void GetInput()
     {
+        if (_m.remembering) return;
         if (Input.GetKeyDown(_shoot))
         {
             _m.Fire();
         } 
 
-        if(Input.GetKey(_rewind)) 
+        if(Input.GetKeyDown(_rewind))
         {
             _m.Rewind();
         }

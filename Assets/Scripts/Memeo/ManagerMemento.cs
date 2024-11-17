@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ManagerMemento : MonoBehaviour
@@ -29,8 +28,7 @@ public class ManagerMemento : MonoBehaviour
         var _r = r;
         if (allRewinds.Contains(_r))
         {
-            _r.remembering = true;
-            _r.StartAction();
+            _r.Action();
         }
     }
 }
